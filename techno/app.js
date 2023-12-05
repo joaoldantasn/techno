@@ -69,6 +69,15 @@ const vm = new Vue({
         this.carrinho = JSON.parse(window.localStorage.carrinho);
       }
     },
+    compararEstoque() {
+      this.carrinho.filter((item) => {
+        console.log(item.id);
+        if (item.id === this.produto.id) {
+          return true;
+        }
+      });
+      this.produto.estoque = this.produto.estoque - item.length;
+    },
     alerta(mensagem) {
       this.mensagemAlerta = mensagem;
       this.alertaAtivo = true;
